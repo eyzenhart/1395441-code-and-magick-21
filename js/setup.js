@@ -48,13 +48,6 @@ var createWizardElements = function(data) {
 };
 
 
-var renderWizards = function(elements) {
-  elements.forEach(function(item, index, array) {
-    similarWizardList.appendChild(item);
-  });
-};
-
-
 // создаем данные
 var wizardsData = createWizardsData(WIZARDS_NUMBER);
 
@@ -62,7 +55,11 @@ var wizardsData = createWizardsData(WIZARDS_NUMBER);
 var wizardElements = createWizardElements(wizardsData);
 
 //отрисовываем элементы
-renderWizards(wizardElements);
+var fragment = document.createDocumentFragment();
+  wizardElements.forEach(function(item, index, array) {
+    similarWizardList.appendChild(item);
+  });
 
+  similarWizardList.appendChild(fragment);
 
 
